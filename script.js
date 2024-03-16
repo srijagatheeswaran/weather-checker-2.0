@@ -2,6 +2,7 @@ const time = document.getElementById("time")
 const date = document.getElementById("date")
 const plus = document.getElementById("plus")
 const inputbox = document.getElementById("searchbox");
+alert("Turn on your location")
 
 function menu(){
      inputbox.classList.toggle('show')
