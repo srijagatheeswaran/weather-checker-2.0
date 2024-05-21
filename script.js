@@ -1,10 +1,17 @@
 const time = document.getElementById("time")
 const date = document.getElementById("date")
-const plus = document.getElementById("plus")
+const icon = document.getElementById("plus")
 const inputbox = document.getElementById("searchbox");
-alert("Turn on your location")
-
+alert("turn on your location")
 function menu(){
+     if (icon.classList.contains('rotate-0')) {
+          icon.classList.remove('rotate-0');
+          icon.classList.add('rotate-43');
+      } else if (icon.classList.contains('rotate-43')) {
+          icon.classList.remove('rotate-43');
+      } else {
+          icon.classList.add('rotate-43');
+      }
      inputbox.classList.toggle('show')
      
      
@@ -69,132 +76,124 @@ function getLocation(){
                document.getElementById("wind").innerHTML = data.wind.speed + "Km/h";
                document.getElementById('city').innerHTML = data.name;
 
-               const climate = ["Clouds","Clear","Drizzle","Rain","Snow","Mist"]
+               const climate = ["Clouds","Clear","Drizzle","Rain","Snow","Mist","Haze"]
                let img = document.getElementById('img');
                let name = document.getElementById('name')
                if(data.weather[0].main == climate[0]){
                     img.src="images/clouds.png";
-
+                    name.innerHTML = 'Clouds';
+                    document.body.style.backgroundImage = "url('bg/cloudbg.jpg')";
+                    
+          
+          
                }
                else if(data.weather[0].main == climate[1]){
                     img.src="images/clear.png";
-
+                    name.innerHTML = 'Clear';
+                    document.body.style.backgroundImage = "url('bg/clearbg.jpg')";
+          
+          
                }
                else if(data.weather[0].main == climate[2]){
                     img.src="images/drizzle.png";
-
+                    name.innerHTML = 'Drizzle';
+                    document.body.style.backgroundImage = "url('bg/drizzlebg.jpg')";
+               
+          
                }
                else if(data.weather[0].main == climate[3]){
                     img.src="images/rain.png";
-
+                    name.innerHTML = 'Rain';
+                    document.body.style.backgroundImage = "url('bg/rainbg.jpg')";
+                    
+                    
+          
                }
                else if(data.weather[0].main == climate[4]){
                     img.src="images/snow.png";
-
-               }
-               else if(data.weather[0].main == climate[5]){
-                    img.src="images/mist.png";
-
-               }
-               if(data.weather[0].main == climate[0]){
-                    name.innerHTML = 'Clouds';
-               }
-               else if(data.weather[0].main == climate[1]){
-                    name.innerHTML = 'Clear';
-               }
-               else if(data.weather[0].main == climate[2]){
-                    name.innerHTML = 'Drizzle';
-               }
-               else if(data.weather[0].main == climate[3]){
-                    name.innerHTML = 'Rain';
-               }
-               else if(data.weather[0].main == climate[4]){
                     name.innerHTML = 'Snow';
+                    document.body.style.backgroundImage = "url('bg/snow.jpg')";
+          
                }
-               else if(data.weather[0].main == climate[5]){
+               else if(data.weather[0].main == climate[5] || data.weather[0].main == climate[6] ){
+                    img.src="images/mist.png";
                     name.innerHTML = 'Mist';
+                    document.body.style.backgroundImage = "url('bg/mist.jpg')";
+          
                }
-
-
-
-
-
-
-
-
-               
+                    
 
           }
 
      });
 }
 async function button(){
+   const climate = ["Clouds","Clear","Drizzle","Rain","Snow","Mist"]
+  
+   let img = document.getElementById('img');
+   let name = document.getElementById('name')  
    const input = document.getElementById("input");
    const inputValue = input.value;
    const key="&appid=e0a9538e363bdc498c473dc6fe344cea&units=metric"
    const link = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputValue + key);
-   data= await link.json();
-   console.log(data)
-   const climate = ["Clouds","Clear","Drizzle","Rain","Snow","Mist"]
-   document.getElementById('city').innerHTML = data.name;
-   document.getElementById("humidity").innerHTML = data.main.humidity + "%";
-   document.getElementById("pressure").innerHTML = data.main.pressure;
-   document.getElementById("wind").innerHTML = data.wind.speed + "Km/h";
-   let img = document.getElementById('img');
-   let name = document.getElementById('name')
-               
-   if(data.cod == '404'){
-     city.innerHTML = "your city can't find";
+   let data= await link.json();
+   if(data.cod == 404){
+     console.log(data.cod)
+     city.innerHTML = "Your city can't find";
+     
 
    }
    else{
-    
-    if(data.weather[0].main == climate[0]){
-     img.src="images/clouds.png";
+     if(data.weather[0].main == climate[0]){
+          img.src="images/clouds.png";
+          name.innerHTML = 'Clouds';
+          document.body.style.backgroundImage = "url('bg/cloudbg.jpg')";
+          
+
 
      }
-else if(data.weather[0].main == climate[1]){
-     img.src="images/clear.png";
-
-}
-else if(data.weather[0].main == climate[2]){
-     img.src="images/drizzle.png";
-
-}
-else if(data.weather[0].main == climate[3]){
-     img.src="images/rain.png";
-
-}
-else if(data.weather[0].main == climate[4]){
-     img.src="images/snow.png";
-
-}
-else if(data.weather[0].main == climate[5]){
-     img.src="images/mist.png";
-
-}
-if(data.weather[0].main == climate[0]){
-     name.innerHTML = 'Clouds';
-}
-else if(data.weather[0].main == climate[1]){
-     name.innerHTML = 'Clear';
-}
-else if(data.weather[0].main == climate[2]){
-     name.innerHTML = 'Drizzle';
-}
-else if(data.weather[0].main == climate[3]){
-     name.innerHTML = 'Rain';
-}
-else if(data.weather[0].main == climate[4]){
-     name.innerHTML = 'Snow';
-}
-else if(data.weather[0].main == climate[5]){
-     name.innerHTML = 'Mist';
-}
+     else if(data.weather[0].main == climate[1]){
+          img.src="images/clear.png";
+          name.innerHTML = 'Clear';
+          document.body.style.backgroundImage = "url('bg/clearbg.jpg')";
 
 
-}}
+     }
+     else if(data.weather[0].main == climate[2]){
+          img.src="images/drizzle.png";
+          name.innerHTML = 'Drizzle';
+          document.body.style.backgroundImage = "url('bg/drizzlebg.jpg')";
+     
 
+     }
+     else if(data.weather[0].main == climate[3]){
+          img.src="images/rain.png";
+          name.innerHTML = 'Rain';
+          document.body.style.backgroundImage = "url('bg/rainbg.jpg')";
+          
+          
+
+     }
+     else if(data.weather[0].main == climate[4]){
+          img.src="images/snow.png";
+          name.innerHTML = 'Snow';
+          document.body.style.backgroundImage = "url('bg/snow.jpg')";
+
+     }
+     else if(data.weather[0].main == climate[5] || data.weather[0].main == climate[6] ){
+          img.src="images/mist.png";
+          name.innerHTML = 'Mist';
+          document.body.style.backgroundImage = "url('bg/mist.jpg')";
+
+     }
+    
+
+   }
+document.getElementById('city').innerHTML = data.name;
+document.getElementById("humidity").innerHTML = data.main.humidity + "%";
+document.getElementById("pressure").innerHTML = data.main.pressure;
+document.getElementById("wind").innerHTML = data.wind.speed + "Km/h";
+}
      
      
           
