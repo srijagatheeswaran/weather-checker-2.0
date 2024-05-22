@@ -2,7 +2,7 @@ const time = document.getElementById("time")
 const date = document.getElementById("date")
 const icon = document.getElementById("plus")
 const inputbox = document.getElementById("searchbox");
-alert("turn on your location")
+// alert("turn on your location")
 function menu(){
      if (icon.classList.contains('rotate-0')) {
           icon.classList.remove('rotate-0');
@@ -129,7 +129,7 @@ function getLocation(){
 }
 async function button(){
    const climate = ["Clouds","Clear","Drizzle","Rain","Snow","Mist"]
-  
+   let city = document.getElementById('city');
    let img = document.getElementById('img');
    let name = document.getElementById('name')  
    const input = document.getElementById("input");
@@ -138,12 +138,17 @@ async function button(){
    const link = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputValue + key);
    let data= await link.json();
    if(data.cod == 404){
-     console.log(data.cod)
-     city.innerHTML = "Your city can't find";
+     city.innerHTML = "City not found"; 
+     document.body.style.backgroundImage = "url('bg/Hu7cO08-stormy-wallpaper.jpg')";  
+     name.innerHTML = '';
+     img.src="images/notimg.png";
+     inputbox.classList.add('err')
+
      
 
    }
    else{
+     inputbox.classList.remove('err')
      if(data.weather[0].main == climate[0]){
           img.src="images/clouds.png";
           name.innerHTML = 'Clouds';
@@ -186,13 +191,14 @@ async function button(){
           document.body.style.backgroundImage = "url('bg/mist.jpg')";
 
      }
+     city.innerHTML = data.name;
+     document.getElementById("humidity").innerHTML = data.main.humidity + "%";
+     document.getElementById("pressure").innerHTML = data.main.pressure;
+     document.getElementById("wind").innerHTML = data.wind.speed + "Km/h";
     
 
    }
-document.getElementById('city').innerHTML = data.name;
-document.getElementById("humidity").innerHTML = data.main.humidity + "%";
-document.getElementById("pressure").innerHTML = data.main.pressure;
-document.getElementById("wind").innerHTML = data.wind.speed + "Km/h";
+
 }
      
      

@@ -4,6 +4,7 @@ body{
     background-size: cover;
     color: white;
     transition: background-image 1s ease-in-out;
+    height: 100vh;
     
 }
 .fristBox{
@@ -101,6 +102,11 @@ body{
 .card-img-top{
     height: 150px;
     width: 150px;
+    transition: all 1s ease-in-out;
+}
+.err{
+    box-shadow: rgb(255, 0, 0) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    border: 0.5px solid red;
 }
 
 @media (min-width:769px){
@@ -117,6 +123,10 @@ body{
     flex-direction: column;
     justify-content: end;
     margin-bottom: 20px;
+    font-size: 47px;
+}
+.time{
+    font-size: 45px;
 }
 .secoundBox{
     margin-top: 0;
