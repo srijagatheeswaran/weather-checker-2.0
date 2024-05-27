@@ -7,6 +7,7 @@ body{
     height: 100vh;
     
 }
+
 .fristBox{
     display: flex;
     justify-content: space-between;
@@ -23,7 +24,7 @@ body{
 .day{
     margin-left: 5px;
 }
-.bi-plus-circle{
+.bi{
     font-size: 25px;
     
     
@@ -57,7 +58,7 @@ body{
     opacity: 0;
     transition: all 1s ease-in-out;
     pointer-events: none;  
-    transform: translatex(-150%);
+    transform: translatey(-150%);
 
 }
 .show{
@@ -88,7 +89,7 @@ body{
     background-color: transparent!important;
     color: white;
     border: 1px solid white !important;
-    margin: 10px;
+    margin: 25px 0;
 }
 .citycard{
     padding: 10px;
@@ -97,12 +98,49 @@ body{
     flex-direction: column;
     text-align: center;
     
+}
+.main{
+    position: relative;
+    display: flex;
+    justify-content: center;
     
 }
+.suggestion{
+    width: 90%;
+    color: black;
+    height: 150px;
+    position: absolute;
+    overflow-y: scroll;
+    top: 39px;
+    z-index: 1;
+    
+}
+.suggestion ul{
+    background-color: rgb(250, 246, 246);
+    list-style: none;
+    padding: 0px 11px;
+}
+.suggestion ul li{
+    font-weight: 300;
+    padding: 2px;
+    
+}
+.suggestion ul li:hover{
+    background-color: rgb(63, 245, 245);
+}
+.focused{
+    background-color: aquamarine;
+    
+}
+
+
 .card-img-top{
     height: 150px;
     width: 150px;
     transition: all 1s ease-in-out;
+}
+.point p{
+    margin-bottom: 5px;
 }
 .err{
     box-shadow: rgb(255, 0, 0) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
@@ -114,8 +152,9 @@ body{
 body{
     display: flex;
     max-height: 100vh;
+    
 }
-.plus{
+.bi-plus-circle{
     display: none;
 }
 .date{
@@ -140,6 +179,7 @@ body{
     opacity: 1;
     transform: translatex(0);
     pointer-events:all; 
+    
 }
 .citycard{
     padding: 6px;
@@ -154,5 +194,9 @@ body{
 .city{
     height: max-content;
     margin: 10px;
+}
+.suggestion{
+    
+    top: 47px;
 }
 }

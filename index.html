@@ -19,14 +19,21 @@
             <p class="day p" id="date"></0>
         </div>
         <div class="plus">
+            <i class="bi bi-geo-alt-fill" onclick="getLocation()"></i>
             <i class="bi bi-plus-circle " id="plus" onclick="menu()"></i>
         </div>
     </div>
     <div class="container secoundBox">
-        <div class="input-group mb-3" id="searchbox">
-            <input type="text" class="form-control" id="input" placeholder="Enter city name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <span class="input-group-text" id="basic-addon2"><button class="btn" onclick="button()"><img src="images/search.png"></button></span>
+        <div class="main">
+            <div class="input-group mb-3" id="searchbox">
+                <input type="text" class="form-control" id="input" placeholder="Enter city name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2"><button class="btn" id="btn" onclick="button()"><img src="images/search.png"></button></span>
+            </div>
+            <div class="suggestion">
+                
+            </div>
         </div>
+        
         <div class="card weather">   
             <div class="card-body">
                 <p class="card-title">humidity   <span class="card-subtitle"  id="humidity"></span></p>
