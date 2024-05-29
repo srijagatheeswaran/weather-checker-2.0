@@ -113,6 +113,7 @@ body{
     overflow-y: scroll;
     top: 39px;
     z-index: 1;
+    display: none;
     
 }
 .suggestion ul{
@@ -131,6 +132,15 @@ body{
 .focused{
     background-color: aquamarine;
     
+}
+.sug:hover{
+    background-color: aquamarine;
+}
+::-webkit-scrollbar {
+    width: 5px;
+  }
+.show3{
+    display: block;
 }
 
 

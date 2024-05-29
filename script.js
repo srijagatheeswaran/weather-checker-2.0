@@ -141,6 +141,7 @@ function getLocation(){
 
      
 async function button(){
+     
    const climate = ["Clouds","Clear","Drizzle","Rain","Snow","Mist"]
    
    const inputValue = input.value;
@@ -261,6 +262,7 @@ const cityArr = [
    ];
  let resultBox =document.querySelector('.suggestion');
 input.onkeyup =function(){
+     resultBox.classList.add('show3')
      let result = [];
      let value = input.value;
      if(value.length){
@@ -269,8 +271,13 @@ input.onkeyup =function(){
                
           })
           
+          
      }
      display(result);
+     if(!value.length ){
+          resultBox.classList.remove('show3')
+      }
+    
 
 
      
@@ -281,20 +288,24 @@ function display(result){
 
      })
      resultBox.innerHTML = `<ul>${show.join('')}</ul>`
+    
 
 } 
 function select(list){
      input.value = list.innerHTML;
      resultBox.innerHTML ='';
+     resultBox.classList.remove('show3')
 }
 document.addEventListener("click",function(){
      resultBox.innerHTML ='';
+     resultBox.classList.remove('show3')
 })
 
 document.addEventListener("keyup", function(event) {
      event.preventDefault();
      if (event.keyCode === 13) {
          document.getElementById("btn").click();
+         resultBox.classList.remove('show3')
      }
  });
  let currentIndex =-1;
@@ -322,6 +333,7 @@ document.addEventListener("keyup", function(event) {
          });
      }
  }
+ 
     
      
      
