@@ -5,7 +5,7 @@ body{
     color: white;
     transition: background-image 1s ease-in-out;
     height: 100vh;
-    
+
 }
 
 .fristBox{
@@ -26,8 +26,8 @@ body{
 }
 .bi{
     font-size: 25px;
-    
-    
+
+
 }
 .bi-plus-circle::before{
     transition: transform 0.5s ease-in;
@@ -57,19 +57,19 @@ body{
     width: 90%;
     opacity: 0;
     transition: all 1s ease-in-out;
-    pointer-events: none;  
+    pointer-events: none;
     transform: translatey(-150%);
 
 }
 .show{
     opacity: 1;
     transform: translatex(0);
-    pointer-events:all; 
-    
+    pointer-events:all;
+
 }
 .form-control:focus {
  box-shadow: none;
- 
+
 }
 .btn{
     padding: 0;
@@ -97,13 +97,13 @@ body{
     align-items: center;
     flex-direction: column;
     text-align: center;
-    
+
 }
 .main{
     position: relative;
     display: flex;
     justify-content: center;
-    
+
 }
 .suggestion{
     width: 90%;
@@ -114,7 +114,7 @@ body{
     top: 39px;
     z-index: 1;
     display: none;
-    
+
 }
 .suggestion ul{
     background-color: rgb(250, 246, 246);
@@ -124,14 +124,14 @@ body{
 .suggestion ul li{
     font-weight: 300;
     padding: 2px;
-    
+
 }
 .suggestion ul li:hover{
     background-color: rgb(63, 245, 245);
 }
 .focused{
     background-color: aquamarine;
-    
+
 }
 .sug:hover{
     background-color: aquamarine;
@@ -156,13 +156,20 @@ body{
     box-shadow: rgb(255, 0, 0) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     border: 0.5px solid red;
 }
+.bi-geo-alt-fill{
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+.bi-geo-alt-fill:hover{
+    color: yellow;
+}
 
 @media (min-width:769px){
 
 body{
     display: flex;
     max-height: 100vh;
-    
+
 }
 .bi-plus-circle{
     display: none;
@@ -188,8 +195,8 @@ body{
     margin-top: 9px;
     opacity: 1;
     transform: translatex(0);
-    pointer-events:all; 
-    
+    pointer-events:all;
+
 }
 .citycard{
     padding: 6px;
@@ -206,7 +213,7 @@ body{
     margin: 10px;
 }
 .suggestion{
-    
+
     top: 47px;
 }
 }
